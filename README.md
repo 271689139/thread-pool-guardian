@@ -263,3 +263,47 @@ public class RestTemplateWrapper {
     }
 }
 ```
+
+
+### ThreadPoolUtil.java
+```java
+/*
+ * Copyright (C), 2016-2019, 上海巧房信息技术有限公司
+ * ClassName: ThreadPoolUtil
+ * Author:   liushihao
+ * Date:     2019/7/11 4:18 PM
+ * Description: //模块目的、功能描述
+ * History: //修改记录
+ * <author>      <time>      <version>    <desc>
+ * 修改人姓名     修改时间      版本号        描述
+ */
+package com.fxt.util.sync;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+/**
+ * 〈一句话功能简述〉<br>
+ * 〈功能详细描述〉
+ *
+ * @author liushihao
+ * @see [相关类/方法]（可选）
+ * @since [产品/模块版本] （可选）
+ */
+public class ThreadPoolUtil {
+    /**
+     * 核心线程数量
+     */
+    private static final int THREAD_NUMBER = Runtime.getRuntime().availableProcessors() * 5 + 1;
+
+    private static final ExecutorService THREAD_POOL = new ThreadPoolExecutor(THREAD_NUMBER, THREAD_NUMBER,
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue(), new ThreadPoolExecutor.AbortPolicy());
+
+    public static ExecutorService getThreadPool() {
+        return THREAD_POOL;
+    }
+}
+```
