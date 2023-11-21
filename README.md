@@ -1,4 +1,4 @@
-# v10-Interface
+# thread-pool-guardian
 
 ### 由于是个老项目,使用的jdk版本是1.6,使用框架Struts,无法像Spring Cloud 一样引入熔断，降级等组件,所以利用线程池做依赖外部接口调用快速熔断
 
